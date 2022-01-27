@@ -20,10 +20,12 @@ const asynReturnThree = (): Promise<number> => {
 export class Counter {
     private counter: number;
     constructor(){
-        asynReturnThree().then(num => {
-            this.counter = num;
-            console.log("[Init]", this.counter);
-        });
+    }
+
+    init = async () => {
+        const num = await asynReturnThree();
+        this.counter = num;
+        console.log("[Init]", this.counter);
     }
 
     increment = () => {

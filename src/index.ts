@@ -1,5 +1,9 @@
 import {Counter} from "./sample_class";
 
-// Counterをインスタンス化してincrementしてみる
+// インスタンス化
 const counter = new Counter();
-counter.increment();
+
+// init()で初期化した後処理を実行
+counter.init().then(() => {
+    counter.increment();
+});
