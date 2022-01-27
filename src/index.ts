@@ -1,9 +1,13 @@
 import {Counter} from "./sample_class";
 
-// インスタンス化
-const counter = new Counter();
+// Note: わかりやすさのために関数に分割
 
-// init()で初期化した後処理を実行
-counter.init().then(() => {
+/**
+ * やりたい処理を実行
+ */
+const sample = async () => {
+    const counter = await Counter.Instantiate();
     counter.increment();
-});
+}
+
+sample();

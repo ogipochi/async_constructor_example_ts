@@ -19,13 +19,24 @@ const asynReturnThree = (): Promise<number> => {
  */
 export class Counter {
     private counter: number;
-    constructor(){
+
+    /**
+     * init()から呼ばれる想定のコンストラクタ
+     * _counterで渡された値でプロパティのcoutnerを初期化する
+     * @param _counter 
+     */
+    private constructor(_counter: number){
+        this.counter = _counter;
+        console.log("[Init]", this.counter);
     }
 
-    init = async () => {
+    /**
+     * 非同期でインスタンス化を実行する
+     * @returns 
+     */
+    public static Instantiate = async (): Promise<Counter> => {
         const num = await asynReturnThree();
-        this.counter = num;
-        console.log("[Init]", this.counter);
+        return new Counter(num);
     }
 
     increment = () => {
